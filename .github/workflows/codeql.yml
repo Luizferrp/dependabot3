@@ -3,7 +3,7 @@ name: CI/CD
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -27,7 +27,10 @@ jobs:
     - name: Execute Dependabot
       uses: docker://dependabot/actions/update-dependencies:2.0.0
       with:
-         - package-ecosystem: npm
+        dependencies-file-path: package.json
+        branch-name: dependabot/update-dependencies
+        updates:
+        - package-ecosystem: npm
           directory: "/"
           schedule:
-            interval: never
+            interval: daily
