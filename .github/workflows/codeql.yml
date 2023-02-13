@@ -27,10 +27,7 @@ jobs:
     - name: Execute Dependabot
       uses: docker://dependabot/actions/update-dependencies:2.0.0
       with:
-        dependencies-file-path: package.json
-        branch-name: dependabot/update-dependencies
-        updates:
-        - package-ecosystem: npm
+         - package-ecosystem: npm
           directory: "/"
           schedule:
             interval: never
